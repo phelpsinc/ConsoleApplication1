@@ -6,7 +6,7 @@
   epic competition for greatness. But together they can form greatness.
   Added 02/25/2017: If statements and character Y or N flag.
 */
-
+//Test Comment.
 //including the iostreem external dependency to be able to use cout.
 #include <iostream>
 //Including strings to accept string content for username variable.
