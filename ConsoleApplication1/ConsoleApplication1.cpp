@@ -73,7 +73,7 @@ int main() {
 
 		
 
-		if (favoriteNumber == 23); //Easter Egg Number 23 for Michael Jordan the best of all time.
+		if (favoriteNumber == 23) //Easter Egg Number 23 for Michael Jordan the best of all time.
 		{
 			//Secret Message and you have won the game. 
 			cout << "You have unlocked the heart of the game! 23 Was Michael Jordan's Number!";
