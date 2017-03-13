@@ -38,10 +38,10 @@ int main() {
 	cout << "Welcome to Chuck Phelps's Awesome Go - Python Forever For Now Game!" << endl << endl;
 
 	//Print the output of the PYTHON2DOT7.
-	cout << "The power of Python2.7 is: " << PYTHON2DOT7 << endl << endl;
+	cout << "The power of Python 2.7 is: " << PYTHON2DOT7 << endl << endl;
 
 	//Print the output of the PYTHON3DOT6.
-	cout << "The power of Python3.6 is: " << PYTHON3DOT6 << endl << endl;
+	cout << "The power of Python 3.6 is: " << PYTHON3DOT6 << endl << endl;
 
 	//Print the ouput of the combine power of Python2.7 and Python 3.6.
 	cout << "The power of Python2.7 multipled by the power of Python 3.6 is: " << powersCombine << endl << endl;
@@ -57,7 +57,7 @@ int main() {
 	cout << "Can you handle the power of Python? (Y) = Yes or (N) = No. ";
 	cin >> pythonYesOrNo;
 
-	if (pythonYesOrNo == 'Y')
+	if (pythonYesOrNo == 'Y' || pythonYesOrNo == 'y')
 	{
 		// Print the Username as they start the game.
 		cout << endl << endl;
