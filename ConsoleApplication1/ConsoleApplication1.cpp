@@ -18,6 +18,7 @@ int main() {
 	//Initalizing Constant Python XP for python2Dot7 and python3Dot6.
 	double const PYTHON2DOT7 = 27.5;
 	double const PYTHON3DOT6 = 36;
+	double const HOWMANYFAVORITENUMBERS = 2;
 
 	//By Python Powers Combine they are taken to a whole new level. 
 	//Initialize double pythonPower, favoriteNumber, howManyFavoriteNumbers, and pythonCombinewithFav.
@@ -64,7 +65,8 @@ int main() {
 	cin >> menu;
 
 	//Setup the switch system with menu which is defined above by the other characters.
-	//The endls help balance the spacing out on the program.
+	//The endls help balance the spacing out on the program. 
+	//The menu variable is remembered through out the script.
 	switch (menu)
 	{
 	case 'A': cout << endl << endl;
@@ -116,11 +118,15 @@ int main() {
 		}
 
 		//How many favorite numbers does the user have?
-		cout << "How many favorite numbers do you have? ";
+		cout << "How many favorite numbers do you have?(You must have more than 1) ";
 		cin >> howManyFavoriteNumbers;
 
 		//Enter a few new line breaks.
 		cout << endl << endl;
+
+		//Conditional statement that makes sure that the user has entered more than	1
+		// for their favorite number. If it is less than one it will raise it to 2.
+		howManyFavoriteNumbers = howManyFavoriteNumbers < 2 ? HOWMANYFAVORITENUMBERS : howManyFavoriteNumbers;
 
 		//Combine the favoriteNumber, howManyFavoriteNumbers, and powersCombine.
 		pythonCombinewithFav = powersCombine + (favoriteNumber * howManyFavoriteNumbers);
@@ -136,7 +142,8 @@ int main() {
 
 		//Display the numbers combine with Python Forever.
 		cout << "You asked for it and here it is! The numbers are " << pythonCombinewithFav << endl << endl;
-	}
+	
+		}
 	else // Cannot handle the power.
 	{
 		cout << endl << endl;
