@@ -5,6 +5,7 @@
   Purpose: This program is created to make a game. Python the great 2.7 and Python 3.6 the 
   epic competition for greatness. But together they can form greatness.
   Added 02/25/2017: If statements and character Y or N flag.
+  Added 03/14/2017: switch statement to setup a menu to choose your favorite python.
 */
 //Test Comment.
 //including the iostreem external dependency to be able to use cout.
@@ -29,7 +30,9 @@ int main() {
 	string username;
 
 	//Initialize Character if you have used Python. Y - Yes or N - No
+	//Initialize Chacarter Menu A, B, and C.
 	char pythonYesOrNo;
+	char menu;
 
 	//Combine the powers of PYTHON2DOT7 and PYTHON3DOT6 by multiplying the constants.
 	powersCombine = PYTHON2DOT7 * PYTHON3DOT6;
@@ -52,6 +55,31 @@ int main() {
 
 	//Enter a few new line characters.
 	cout << endl << endl;
+
+	//Setting Up the Menu A for Python 2.7 B for Python 3.6 and C for Python Combine
+	cout << "Choose care the power carefully.";
+	cout << endl << endl;
+	cout << "Choose (A) for Python 2.7 (B) for Python 3.6 and (C) for Python Combine?:";
+	//Accept user input for the menu system and utilize switch to exectue the menu system.
+	cin >> menu;
+
+	//Setup the switch system with menu which is defined above by the other characters.
+	//The endls help balance the spacing out on the program.
+	switch (menu)
+	{
+	case 'A': cout << endl << endl;
+		cout << "You have choosen Python 2.7." << endl << endl;
+		break;
+	case 'B': cout << endl << endl;
+		cout << "You have choosen Python 3.6." << endl << endl;
+		break;
+	case 'C': cout << endl << endl;
+		cout << "You have choosen Python Powers Combine." << endl << endl;
+		break;
+	default : cout << endl << endl;
+		cout << "Please enter A, B, or C. Please exit and rerun the program." << endl << endl;
+		break;
+	}
 
 	//Ask the user if they can handle the power of Python.
 	cout << "Can you handle the power of Python? (Y) = Yes or (N) = No. ";
