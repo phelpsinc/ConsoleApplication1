@@ -26,6 +26,7 @@ int main() {
 	double favoriteNumber;
 	double howManyFavoriteNumbers;
 	double pythonCombinewithFav;
+	double menuPythonNumber;
 
 	//Initialize String vairables for username within the game.
 	string username;
@@ -34,6 +35,11 @@ int main() {
 	//Initialize Chacarter Menu A, B, and C.
 	char pythonYesOrNo;
 	char menu;
+
+	//Initialize constant ints below to help with the multiplication later in the game.
+	const int PYTHON2DOT7MENU = 1;
+	const int PYTHON3DOT6MENU = 2;
+	const int PYTHONPOWERCOMBINE = 3;
 
 	//Combine the powers of PYTHON2DOT7 and PYTHON3DOT6 by multiplying the constants.
 	powersCombine = PYTHON2DOT7 * PYTHON3DOT6;
@@ -57,10 +63,10 @@ int main() {
 	//Enter a few new line characters.
 	cout << endl << endl;
 
-	//Setting Up the Menu A for Python 2.7 B for Python 3.6 and C for Python Combine
+	//Setting Up the Menu 1 for Python 2.7 2 for Python 3.6 and 3 for Python Combine
 	cout << "Choose care the power carefully.";
 	cout << endl << endl;
-	cout << "Choose (A) for Python 2.7 (B) for Python 3.6 and (C) for Python Combine?:";
+	cout << "Choose (1) for Python 2.7 (2) for Python 3.6 and (3) for Python Combine?:";
 	//Accept user input for the menu system and utilize switch to exectue the menu system.
 	cin >> menu;
 
@@ -69,18 +75,27 @@ int main() {
 	//The menu variable is remembered through out the script.
 	switch (menu)
 	{
-	case 'A': cout << endl << endl;
+	case '1': cout << endl << endl;
 		cout << "You have choosen Python 2.7." << endl << endl;
+		menuPythonNumber = PYTHON2DOT7;
 		break;
-	case 'B': cout << endl << endl;
+	case '2': cout << endl << endl;
 		cout << "You have choosen Python 3.6." << endl << endl;
+		menuPythonNumber = PYTHON3DOT6;
 		break;
-	case 'C': cout << endl << endl;
+	case '3': cout << endl << endl;
 		cout << "You have choosen Python Powers Combine." << endl << endl;
+		menuPythonNumber = PYTHONPOWERCOMBINE;
 		break;
 	default : cout << endl << endl;
-		cout << "Please enter A, B, or C. Please exit and rerun the program." << endl << endl;
+		cout << "Please enter 1, 2, or 3. Please [Enter] to exit and then rerun the program." << endl << endl;
+		//This will the ignore the return in the keyboard buffer.
+		cin.ignore();
+		//Pause the program before exiting.
+		getchar();
+		return 0;
 		break;
+
 	}
 
 	//Ask the user if they can handle the power of Python.
@@ -129,14 +144,17 @@ int main() {
 		howManyFavoriteNumbers = howManyFavoriteNumbers < 2 ? HOWMANYFAVORITENUMBERS : howManyFavoriteNumbers;
 
 		//Combine the favoriteNumber, howManyFavoriteNumbers, and powersCombine.
-		pythonCombinewithFav = powersCombine + (favoriteNumber * howManyFavoriteNumbers);
+		pythonCombinewithFav = menuPythonNumber + (favoriteNumber * howManyFavoriteNumbers);
+
+		//cout << endl << endl;
+		//cout << menuPythonNumber;
 
 		//Print the Users Favorite Number.
 		cout << "We must becareful! We are combining your favorite number " << favoriteNumber;
 		//Print the number of favorite numbers.
 		cout << ", multiplied by how many favorite numbers you have " << howManyFavoriteNumbers;
 		//Continuing the statement before the calculation.
-		cout << " and Python Forever " << powersCombine;
+		cout << " and your choice from above " << menuPythonNumber;
 		//Enter a few new line breaks.
 		cout << "." << endl << endl;
 
