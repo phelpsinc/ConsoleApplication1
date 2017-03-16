@@ -136,7 +136,7 @@ int main() {
 		cout << "How many favorite numbers do you have?(You must have more than 1) ";
 		cin >> howManyFavoriteNumbers;
 
-		//Enter a few new line breaks.
+		//Enter a few new line breaks. For good spacing.
 		cout << endl << endl;
 
 		//Conditional statement that makes sure that the user has entered more than	1
@@ -145,9 +145,6 @@ int main() {
 
 		//Combine the favoriteNumber, howManyFavoriteNumbers, and powersCombine.
 		pythonCombinewithFav = menuPythonNumber + (favoriteNumber * howManyFavoriteNumbers);
-
-		//cout << endl << endl;
-		//cout << menuPythonNumber;
 
 		//Print the Users Favorite Number.
 		cout << "We must becareful! We are combining your favorite number " << favoriteNumber;
