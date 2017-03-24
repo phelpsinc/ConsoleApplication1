@@ -6,6 +6,7 @@
   epic competition for greatness. But together they can form greatness.
   Added 02/25/2017: If statements and character Y or N flag.
   Added 03/14/2017: switch statement to setup a menu to choose your favorite python.
+  Added 03/23/2017: Added a forloop in the easter egg to repeat winner 23 times for Jordan's Number.
 */
 //Test Comment.
 //including the iostreem external dependency to be able to use cout.
@@ -40,6 +41,11 @@ int main() {
 	const int PYTHON2DOT7MENU = 1;
 	const int PYTHON3DOT6MENU = 2;
 	const int PYTHONPOWERCOMBINE = 3;
+
+	//Initialize count variable for the for loop below, cPlusPlus, and cPlusCounter.
+	int count;
+	int cPlusPlus;
+	int cPlusCounter = 0;
 
 	//Combine the powers of PYTHON2DOT7 and PYTHON3DOT6 by multiplying the constants.
 	powersCombine = PYTHON2DOT7 * PYTHON3DOT6;
@@ -85,7 +91,7 @@ int main() {
 		break;
 	case '3': cout << endl << endl;
 		cout << "You have choosen Python Powers Combine." << endl << endl;
-		menuPythonNumber = PYTHONPOWERCOMBINE;
+		menuPythonNumber = powersCombine;
 		break;
 	default : cout << endl << endl;
 		cout << "Please enter 1, 2, or 3. Please [Enter] to exit and then rerun the program." << endl << endl;
@@ -122,7 +128,13 @@ int main() {
 			cout << "You have unlocked the heart of the game! 23 Was Michael Jordan's Number!";
 			cout << endl << endl;
 			cout << "This is an automatic Python Forever For Now Win!!!!!";
-
+			cout << endl << endl;
+			//For Loop to let the player know how awesome they are!
+			for (count = 0; count <= 23; count++)
+				cout << "Winner!!! " << count << endl;
+			//Adding some white space to make the program look pretty
+			cout << endl << endl;
+			cout << "Michael Jordan is the man! Press enter to conclude this session of the game.";
 			//This will the ignore the return in the keyboard buffer.
 			cin.ignore();
 
@@ -158,20 +170,63 @@ int main() {
 		//Display the numbers combine with Python Forever.
 		cout << "You asked for it and here it is! The numbers are " << pythonCombinewithFav << endl << endl;
 	
+		
+
 		}
 	else // Cannot handle the power.
 	{
+		//To add some fun for the users that cannot handle the power of Python.
 		cout << endl << endl;
 		cout << "Python Combine is too powerful for you!";
+		cout << endl << endl;
+		cout << "On a scale of 9 to 10, how awesome is C++?" << endl;
+		cout << "Please enter a number between 9 or 10. (Press Enter): ";
+		//The following was based off of a survery call I got from a major vendor.
+		//On a scale of 9 to 10 how great did we do. 
+		cin >> cPlusPlus;
+		cout << endl << endl;
+		//The if else if and else statement checks the users input and then runs a while loop per their answer. 
+		if (cPlusPlus == 9)
+		{
+			//while loop to itterate 9 times.
+			while (cPlusCounter < 9)
+			{
+				cout << "C++ is great not" << cPlusCounter;
+				cout << " but greater than that. " << endl;
+				cPlusCounter++;
+			}
+			cout << endl << endl;
+		}
+		else if (cPlusPlus == 10)
+		{
+			//while loop to itterate 10 times.
+			while (cPlusCounter < 10)
+			{
+				cout << "C++ is great not" << cPlusCounter;
+				cout << " but greater than that. " << endl;
+				cPlusCounter++;
+			}
+			cout << endl << endl;
+		}
+
+		else{
+			cout << "Please answer on scale between 9 and 10. Please rerun the program" << endl << endl;
+			//This will the ignore the return in the keyboard buffer.
+			cin.ignore();
+			//Pause the program before exiting.
+			getchar();
+			return 0;
+		
+		}
+		
+		//This will the ignore the return in the keyboard buffer.
+		cin.ignore();
+
+		//Pause the script to observe it before it exits.
+		getchar();
+
+
 	}
-	//Enter a few new line breaks.
-	cout << endl << endl;
-
-	//This will the ignore the return in the keyboard buffer.
-	cin.ignore();
-
-	//Pause the script to observe it before it exits.
-	getchar();
 
 
 	return 0;
