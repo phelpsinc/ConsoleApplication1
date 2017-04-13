@@ -12,24 +12,12 @@ using namespace std;
 int main()
 {
    
-	int funny = 6, serious = 29;
-	funny = serious % 2;
-	if (funny != 1)
-	{
-		funny = 0;
-		serious = 0;
-	}
-	else if (funny == 2)
-	{
-		funny = 10;
-		serious = 10;
-	}
-	else
-	{
-		funny = 1;
-		serious = 1;
-	}
-	cout << funny << "" << serious << endl;
+	int number = 6;
+	int x = 0;
+	x = number--;
+
+	cout << x << endl;
+
 
 	//int x = -1;
 
@@ -43,6 +31,8 @@ int main()
 	//	cout << "true" << endl;
 //
 //	else
+
+
 
 //cout << "false" << endl;
 	getchar();
