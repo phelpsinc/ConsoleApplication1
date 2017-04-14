@@ -1,6 +1,6 @@
 /*Author: Chuck Phelps
   Created: 01/30/2017
-  Updated: 04/07/2017
+  Updated: 04/13/2017
   Title: Go - Python Forever For Now 
   Purpose: This program is created to make a game. Python the great 2.7 and Python 3.6 the 
   epic competition for greatness. But together they can form greatness.
@@ -9,6 +9,10 @@
   Added 03/23/2017: Added a forloop in the easter egg to repeat winner 23 times for Jordan's Number.
   Added 03/30/2017: Write to a file with fstream.
   Added 04/06/2017: Added two prototype fucntions. One to display a menu and another to display a bowling average.
+  Removed 04/13/2017: CPlusPlus Menu that was commented out.
+  Added 04/14/2017: A Create directory fucntion to see if a directory exists or not. This got rid of a untidy message related to a directory already existing.
+
+  IMPORTANT NOTE - UNDER PROJECT PROPERTIES -> General -> THE CHARACTER SET MUST BE SET TO "Use Multi-Byte Character Set".
 */
 //Test Comment.
 //including the iostreem external dependency to be able to use cout.
@@ -26,6 +30,8 @@ using namespace std;
 void pythonMenu();
 //void cPlusMenu();
 void bowlingForCplus(int, int, int);
+//This was added to get rid of the message of a folder being displayed at the top of my program.
+void CreateFolder(const char * path);
 
 
 int main() {
@@ -46,6 +52,7 @@ int main() {
 	string username;
 	//String to be entered into the winning file.
 	string michaelJordanWin = "You have unlocked the heart of the game! 23 Was Michael Jordan's Number!";
+	
 
 	//Initialize Character if you have used Python. Y - Yes or N - No
 	//Initialize Chacarter Menu A, B, and C.
@@ -57,11 +64,10 @@ int main() {
 	const int PYTHON3DOT6MENU = 2;
 	const int PYTHONPOWERCOMBINE = 3;
 	const int CPLUSBOWLING = 4;
-	//const int CPLUSNINE = 9;
-	//const int CPLUSTEN = 10;
-	//const int CPLUSEL = 11;
 
-	//Initialize count variable for the for loop below, cPlusPlus, and cPlusCounter.
+	//const char path2 = outputFolder;
+	
+	//Initialize count variable for the for loop below, cPlusPlus, cPlusCounter, and bowling score.
 	int count;
 	int cPlusPlus;
 	int cPlusCounter = 0;
@@ -69,10 +75,10 @@ int main() {
 	int bowlsc2;
 	int bowlsc3;
 
-	//Create the directory in while the files will be stored.
-	system("mkdir c:\\temporary");
+	//Function called to create a directory called temporary. 
+	CreateFolder("C:\\temporary\\");
 
-	//ofstream initialization of output files.
+	
 	ofstream outputFile;
 	ofstream outputFile2;
 
@@ -373,21 +379,11 @@ void bowlingForCplus(int bowl1, int bowl2, int bowl3)
 		<< endl ;
 }
 
-
-
-//**********************************************************************************
-// Defining a void function for calling the menu earlier in the program.
-//To be explored at a later time.
-//**********************************************************************************
-//void cPlusMenu()
-//{
-// Setting Up the Menu 1 for Python 2.7 2 for Python 3.6 and 3 for Python Combine
-// This is displayed as a menu redployed as a function.
-//	cout << "Choose care the power carefully. \n"
-//		<< endl << endl
-//		<< "Choose\n"
-//		<< endl
-//		<< "(9) cPlus\n" 
-//		<< "(10) for Python 3.6 \n" 
-//		<< "(1?) for Python Combine?";
-//}
+//Create a fucntion to see if a folder exists. We had to enable use of 
+void CreateFolder(const char * path)
+{
+	if (!CreateDirectory(path, NULL))
+	{
+		return;
+	}
+}
