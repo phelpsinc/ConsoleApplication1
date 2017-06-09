@@ -1,6 +1,6 @@
 /*Author: Chuck Phelps
   Created: 01/30/2017
-  Updated: 04/13/2017
+  Updated: 04/24/2017
   Title: Go - Python Forever For Now 
   Purpose: This program is created to make a game. Python the great 2.7 and Python 3.6 the 
   epic competition for greatness. But together they can form greatness.
@@ -10,7 +10,9 @@
   Added 03/30/2017: Write to a file with fstream.
   Added 04/06/2017: Added two prototype fucntions. One to display a menu and another to display a bowling average.
   Removed 04/13/2017: CPlusPlus Menu that was commented out.
-  Added 04/14/2017: A Create directory fucntion to see if a directory exists or not. This got rid of a untidy message related to a directory already existing.
+  Added 04/14/2017: A Create directory function to see if a directory exists or not. This got rid of a untidy message related to a directory already existing.
+  Adjusted 04/24/2017: Changed the bowling average from a void function to return a value as an int. int bowlingForCplus.
+  Added 04/24/2017: Added a stub function to add code later that will calculate two doubles.
 
   IMPORTANT NOTE - UNDER PROJECT PROPERTIES -> General -> THE CHARACTER SET MUST BE SET TO "Use Multi-Byte Character Set".
 */
@@ -28,10 +30,12 @@ using namespace std;
 
 //Fucntion Prototypes.
 void pythonMenu();
-//void cPlusMenu();
-void bowlingForCplus(int, int, int);
+//int cPlusMenu();
+int bowlingForCplus(int, int, int);
 //This was added to get rid of the message of a folder being displayed at the top of my program.
 void CreateFolder(const char * path);
+//Stubs function to test for a future call with a double and double.
+void futureCall(double, double);
 
 
 int main() {
@@ -47,6 +51,7 @@ int main() {
 	double howManyFavoriteNumbers;
 	double pythonCombinewithFav;
 	double menuPythonNumber;
+
 
 	//Initialize String vairables for username within the game.
 	string username;
@@ -64,16 +69,19 @@ int main() {
 	const int PYTHON3DOT6MENU = 2;
 	const int PYTHONPOWERCOMBINE = 3;
 	const int CPLUSBOWLING = 4;
+	const int FUTURECALL = 5;
 
 	//const char path2 = outputFolder;
 	
 	//Initialize count variable for the for loop below, cPlusPlus, cPlusCounter, and bowling score.
+	// bowlingForCplusAvg was added to return an int.
 	int count;
 	int cPlusPlus;
 	int cPlusCounter = 0;
 	int bowlsc1;
 	int bowlsc2;
 	int bowlsc3;
+	int bowlingForCplusAvg;
 
 	//Function called to create a directory called temporary. 
 	CreateFolder("C:\\temporary\\");
@@ -115,6 +123,8 @@ int main() {
 	//Setup the switch system with menu which is defined above by the other characters.
 	//The endls help balance the spacing out on the program. 
 	//The menu variable is remembered through out the script.
+	//Added case 4 for a bowling averaged.
+	//Added case 5 for a future function. 
 	switch (menu)
 	{
 	case '1': cout << endl << endl;
@@ -132,6 +142,10 @@ int main() {
 	case '4': cout << endl << endl;
 		cout << "You have chosen bowling with cPlusPlus." << endl << endl;
 		menuPythonNumber = CPLUSBOWLING;
+		break;
+	case '5': cout << endl << endl;
+		cout << "This will call a function later in the program." << endl << endl;
+		menuPythonNumber = FUTURECALL;
 		break;
 	default: cout << endl << endl;
 		cout << "Please enter 1, 2, 3, or 4. Please [Enter] to exit and then rerun the program." << endl << endl;
@@ -153,12 +167,32 @@ int main() {
 		//Collect the scores.
 			cin >> bowlsc1 >> bowlsc2 >> bowlsc3;
 	    // Call the bowling for Cplus function and pass the bowling scores to the fucntion.
-		bowlingForCplus(bowlsc1, bowlsc2, bowlsc3);
+		bowlingForCplusAvg = bowlingForCplus(bowlsc1, bowlsc2, bowlsc3);
+		cout << endl
+			<< "Your Average is: ";
+		cout << bowlingForCplusAvg << endl;
 		cout << "Press Enter to End the Game.";
 		cin.ignore();
 		//Pause the program before exiting.
 		getchar();
 		return 0;
+
+	}
+	//This if statement was placed here for a future call. As the user goes through it will return them back to the program.
+	if (menuPythonNumber == 5)
+
+	{
+		//Call this future fucntion.
+		futureCall(1.2, 1.2);
+		cout << endl <<endl;
+		cout << "Press Enter to continue.";
+		cout << endl << endl;
+		//Pause the program before exiting.
+		//This will the ignore the return in the keyboard buffer.
+		cin.ignore();
+
+		//Pause the script to observe it before it exits.
+		getchar();
 
 	}
 
@@ -366,17 +400,14 @@ void pythonMenu()
 		<< "(1) Python 2.7\n"
 		<< "(2) Python 3.6 \n"
 		<< "(3) Python Combine? \n" 
-		<< "(4) bowling with cPlusPlus :";
+		<< "(4) bowling with cPlusPlus : \n"
+		<< "(5) Future Call ";
 }
-//This funtion prototype will take bowling scores and give us the average.
-void bowlingForCplus(int bowl1, int bowl2, int bowl3)
+//This fucntion was modified to return a value. 
+int bowlingForCplus(int bowl1, int bowl2, int bowl3)
 {
-	//This will display a line and then add the three scores together.
-	//I had to put an endl before the score for it to show properly.
-	cout << endl 
-		<< "Your Average is: "
-		<< (bowl1 + bowl2 + bowl3) / 3 << endl
-		<< endl ;
+	
+	return (bowl1 + bowl2 + bowl3) / 3;	
 }
 
 //Create a fucntion to see if a folder exists. We had to enable use of 
@@ -386,4 +417,10 @@ void CreateFolder(const char * path)
 	{
 		return;
 	}
+}
+
+//Added this stub function defintion to add some code at a later time.
+void futureCall(double future1, double future2)
+{
+	cout << "Do some cool stuff here in the future call.";
 }
